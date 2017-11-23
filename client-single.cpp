@@ -33,12 +33,6 @@ void send_request(int32_t x) {
 }
 
 int main(int32_t argc, char** argv) {
-	printf("%d\n", gethostbyname("asff"));
-	return 0;
-    memcpy(&server_addr.sin_addr.s_addr, gethostbyname("aosnd")->h_addr,
-			gethostbyname("aosnd")->h_length);
-	int x = server_addr.sin_addr.s_addr;
-	printf("%d %d %d %d\n", x & 255, (x >> 8) & 255, (x >> 16) & 255, x >> 24);
 	init_server(argc, argv);
 	send_request(argc < 3 ? 0 : atoi(argv[2]));
     return 0;
