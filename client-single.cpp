@@ -11,11 +11,11 @@ int32_t port;
 sockaddr_in server_addr;
 
 void init_server(int argc, char** argv) {
-    port = argc < 2 ? 6666 : atoi(argv[1]);
+	port = argc < 2 ? 6666 : atoi(argv[1]);
 	memset(&server_addr, 0, sizeof server_addr);
-    memcpy(&server_addr.sin_addr.s_addr, gethostbyname("localhost")->h_addr, 4);
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(port);
+	memcpy(&server_addr.sin_addr.s_addr, gethostbyname("localhost")->h_addr, 4);
+	server_addr.sin_family = AF_INET;
+	server_addr.sin_port = htons(port);
 }
 
 void send_request(int32_t x) {
@@ -35,5 +35,5 @@ void send_request(int32_t x) {
 int main(int32_t argc, char** argv) {
 	init_server(argc, argv);
 	send_request(argc < 3 ? 0 : atoi(argv[2]));
-    return 0;
+	return 0;
 }
